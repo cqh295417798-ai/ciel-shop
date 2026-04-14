@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --pink: #E8C5C1;
+    --mint: #C5D8D1;
+    --lavender: #D4C5E2;
+    --cream: #FDF6F0;
+    --gold: #C9A96E;
+    --dark: #2D2D2D;
+    --muted: #9A8E8A;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background: var(--pink);
+    color: var(--dark);
+  }
+}
+
+@layer utilities {
+  .font-playfair { font-family: var(--font-playfair), serif; }
+  .font-dm { font-family: var(--font-dm), sans-serif; }
+
+  /* Fade-in on scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Stagger children */
+  .stagger > *:nth-child(1) { transition-delay: 0ms; }
+  .stagger > *:nth-child(2) { transition-delay: 100ms; }
+  .stagger > *:nth-child(3) { transition-delay: 200ms; }
+  .stagger > *:nth-child(4) { transition-delay: 300ms; }
+
+  /* Gold underline hover */
+  .gold-hover {
+    position: relative;
+    display: inline-block;
+  }
+  .gold-hover::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--gold);
+    transition: width 0.3s ease;
+  }
+  .gold-hover:hover::after { width: 100%; }
+
+  /* Glassmorphism */
+  .glass {
+    background: rgba(253, 246, 240, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Pill button */
+  .pill {
+    border-radius: 9999px;
+    padding: 0.5rem 1.5rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: all 0.25s ease;
+  }
+}
+
+/* Scroll-triggered reveal — JS adds .visible */
+@keyframes breathe {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+.breathe { animation: breathe 2s ease-in-out infinite; }
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.shimmer {
+  background: linear-gradient(90deg, var(--pink) 0%, var(--lavender) 50%, var(--mint) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
