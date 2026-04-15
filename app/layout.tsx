@@ -19,11 +19,10 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: "Ciel — Crystal Bracelets",
-  description: "Handcrafted crystal bracelets for the modern woman. Wear your energy.",
-  keywords: ["crystal bracelet", "gemstone jewelry", "healing crystals", "that girl", "luxury bracelet"],
+  description: "Handcrafted crystal bracelets. Wear your energy.",
   openGraph: {
     title: "Ciel — Crystal Bracelets",
-    description: "Wear your energy.",
+    description: "Handcrafted crystal bracelets. Wear your energy.",
     type: "website",
   },
 };
@@ -31,7 +30,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${playfair.variable} ${dmSans.variable}`}>
-      <body className="bg-[#FDF6F0] text-[#2D2D2D] antialiased font-dm">
+      <body className="bg-[#FAFAF8] text-[#1A1A1A] font-dm">
         <CartProvider>
           <Navbar />
           <main>{children}</main>
