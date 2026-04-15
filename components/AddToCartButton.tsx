@@ -29,18 +29,18 @@ export default function AddToCartButton({ product }: { product: ShopifyProduct }
   }
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-4">
       {variants.length > 1 && (
         <div>
-          <p className="text-[10px] tracking-[0.3em] uppercase text-[#8A8A8A] mb-3">Option</p>
+          <p className="font-mono-ciel text-[9px] tracking-[0.4em] uppercase opacity-40 mb-3">Option</p>
           <div className="flex flex-wrap gap-2">
             {variants.map((v) => (
               <button key={v.id} onClick={() => setSelectedId(v.id)} disabled={!v.availableForSale}
-                className={`text-[10px] tracking-[0.2em] uppercase px-4 py-2 border transition-all duration-300 ${
+                className={`font-mono-ciel text-[9px] tracking-[0.2em] uppercase px-4 py-2 border transition-all duration-300 ${
                   selectedId === v.id
                     ? "border-[#1A1A1A] bg-[#1A1A1A] text-[#FAFAF8]"
-                    : "border-[#E8E4DF] text-[#8A8A8A] hover:border-[#A89060] hover:text-[#A89060]"
-                } disabled:opacity-30 disabled:cursor-not-allowed`}>
+                    : "border-[#E5E5E5] opacity-50 hover:border-[#1A1A1A] hover:opacity-100"
+                } disabled:opacity-20 disabled:cursor-not-allowed`}>
                 {v.title}
               </button>
             ))}
@@ -49,8 +49,8 @@ export default function AddToCartButton({ product }: { product: ShopifyProduct }
       )}
 
       <button onClick={handleAdd} disabled={!selected?.availableForSale}
-        className="w-full border border-[#1A1A1A] text-[#1A1A1A] py-4 text-[10px] tracking-[0.3em] uppercase hover:bg-[#1A1A1A] hover:text-[#FAFAF8] transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed">
-        {!selected?.availableForSale ? "Out of Stock" : added ? "✓ Added" : "Add to Cart"}
+        className="w-full border border-[#1A1A1A] font-mono-ciel text-[9px] tracking-[0.4em] uppercase py-4 hover:bg-[#1A1A1A] hover:text-[#FAFAF8] transition-all duration-300 disabled:opacity-20 disabled:cursor-not-allowed">
+        {!selected?.availableForSale ? "OUT OF STOCK" : added ? "✓ ADDED" : "ADD TO ARCHIVE →"}
       </button>
     </div>
   );

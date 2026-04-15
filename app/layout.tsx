@@ -1,37 +1,33 @@
 import type { Metadata } from "next";
-import { Playfair_Display, DM_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/lib/cart-context";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import CursorController from "@/components/CursorController";
 
-const playfair = Playfair_Display({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-playfair",
-});
-
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  variable: "--font-dm",
+  weight: ["200", "300", "400"],
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
-  title: "Ciel — Crystal Bracelets",
-  description: "Handcrafted crystal bracelets. Wear your energy.",
+  title: "CIELGEM — Crystal Bracelets",
+  description: "Cosmic · Intuition · Essence · Lucky. Handcrafted crystal bracelets.",
   openGraph: {
-    title: "Ciel — Crystal Bracelets",
-    description: "Handcrafted crystal bracelets. Wear your energy.",
+    title: "CIELGEM",
+    description: "Cosmic · Intuition · Essence · Lucky.",
     type: "website",
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${dmSans.variable}`}>
-      <body className="bg-[#FAFAF8] text-[#1A1A1A] font-dm">
+    <html lang="en" className={inter.variable}>
+      <body className="bg-[#FAFAF8] text-[#1A1A1A]" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
         <CartProvider>
+          <CursorController />
           <Navbar />
           <main>{children}</main>
           <Footer />
