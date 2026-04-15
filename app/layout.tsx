@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="bg-[#FAFAF8] text-[#1A1A1A]" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
+      <body className="bg-[#F2F0ED] text-[#1A1A1A]" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
         <CartProvider>
           <CursorController />
           <Navbar />
